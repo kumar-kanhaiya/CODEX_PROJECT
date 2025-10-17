@@ -1,0 +1,44 @@
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+.section {
+    padding: 20px;
+    height: 100vh;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.imageSec{
+    height: 50%;
+    width: 100%;
+}
+
+.imageSec img{
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    object-fit: contain;
+    
+
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #333;
+    font-weight: 600;
+    font-size: 55px;
+}

@@ -18,6 +18,7 @@ const Front = () => {
                             We provide comprehensive university notes and sample papers alongside curated,
                             guided pathways—complete with video lectures—to launch disrupted students into the world of coding."
                         </p>
+                        <button className="getStartedBtn">Get Started</button>
                     </h3>
                 </div>
 
@@ -26,6 +27,7 @@ const Front = () => {
                     <img src={codingImage} alt="Coding" />
                     <img src={happyStudents} alt="Happy Students" className="happyStudents" />
                 </div>
+                
             </div>
         </>
     )
