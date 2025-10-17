@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.parentFront{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+    height: 100vh;
+    background-color: #fff;
+    margin: 0 12%;
+}
+
+.tittle h1{
+    font-size: 48px;
+    font-weight: bold;
+    color: #046645;
+    margin-top: 18%;
+    
+
+}
+
+.tittle p{
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
