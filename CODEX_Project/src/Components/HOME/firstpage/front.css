@@ -1,31 +1,54 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.parentFront{
-    display: flex;
+.parentFront {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
     justify-content: center;
-    /* align-items: center; */
-    
     height: 100vh;
     background-color: #fff;
     margin: 0 12%;
 }
 
-.tittle h1{
+.tittle h1 {
     font-size: 48px;
     font-weight: bold;
     color: #046645;
     margin-top: 18%;
-    
-
 }
 
-.tittle p{
+.tittle p {
     font-size: 18px;
     color: #666;
     margin-top: 10px;
 }
 
+.imageSection {
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageSection img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ✅ Make happyStudents image smaller and fixed height */
+.happyStudents {
+    margin-top: -8%;
+    grid-column: span 2;
+    height: 480px;     /* Try 150–200px depending on your screen */
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+}

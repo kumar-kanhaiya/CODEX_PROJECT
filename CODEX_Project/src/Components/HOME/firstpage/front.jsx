@@ -1,29 +1,31 @@
-import React  from "react";
+import React from "react";
 import './front.css';
-import academicImage from '../../../assets/academicImage.png';
-import codingImage from '../../../assets/codingImage.png';
-import happyStudents from '../../../assets/happyStudents.png';
+import academicImage from '../../../assets/academic.png';
+import codingImage from '../../../assets/coding.png';
+import happyStudents from '../../../assets/happy.png';
+
 
 const Front = () => {
     return (
         <>
-        <div className="parentFront">
-            <div className="tittle">
-                <h1>
-                    <strong>Master Your Degree. Master Your Future :</strong>
-                </h1>
-                <h3><p>
-                    "Codex is the essential platform for the modern student, bridging the gap between academic success and technical literacy.
-                     We provide comprehensive university notes and sample papers alongside curated, 
-                     guided pathways—complete with video lectures—to launch disrupted students into the world of coding."
-                    </p>
+            <div className="parentFront">
+                <div className="tittle">
+                    <h1><strong>Master Your Degree. Master Your Future :</strong></h1>
+                    <h3>
+                        <p>
+                            "Codex is the essential platform for the modern student, bridging the gap between academic success and technical literacy.
+                            We provide comprehensive university notes and sample papers alongside curated,
+                            guided pathways—complete with video lectures—to launch disrupted students into the world of coding."
+                        </p>
                     </h3>
+                </div>
 
+                <div className="imageSection">
+                    <img src={academicImage} alt="Academic" />
+                    <img src={codingImage} alt="Coding" />
+                    <img src={happyStudents} alt="Happy Students" className="happyStudents" />
+                </div>
             </div>
-            <div className="imageSection">
-
-            </div>
-        </div>
         </>
     )
 }
