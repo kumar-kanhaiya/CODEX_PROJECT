@@ -15,7 +15,10 @@ const Second = () => {
                 <div className="content" >
                     <h1>Academic Pressure?</h1>
                     <p>
-                        Codex is more than just a study aid; it's a comprehensive platform designed to empower students in their academic and technical journeys.
+                        Are You Feeling the Pressure of Academia? Codex Has You Covered ! Don't let your upcoming exams and challenging courses stress you out. 
+                        Our Academic Support area is designed precisely for this purpose, and provides a complete collection of Previous Year Question
+                         (PYQ) papers and sample papers specifically for university exams.  Whether you're an engineering student or a BCA student, you can find
+                          all the notes you need to conquer your subjects, which will help you prepare and feel confident. 
                     </p>
                 </div>
 
@@ -28,7 +31,10 @@ const Second = () => {
                 <div className="content">
                     <h1>Stuck in Coding?</h1>
                     <p>
-                        With Codex, students can seamlessly transition from mastering their coursework to acquiring essential coding skills, preparing them for the demands of the modern workforce.
+                        Feeling Stuck Before You Start? Codex Can Guide You Through Your Coding Journey. 
+                        The world of coding looks complicated, but it doesn't have to be. Our Coding Guidance section is your best place to begin.
+                         We will help you through the initial challenges of selecting the right programming language to start, and provide access to the absolute best free online resources.
+                         Instead of feeling overwhelmed, you can begin to develop useful skills working through pathways and recommendations from our experts.
                     </p>
                 </div>
 
