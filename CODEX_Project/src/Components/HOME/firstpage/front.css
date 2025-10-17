@@ -9,26 +9,40 @@
     grid-template-columns: 1fr 1fr;
     gap: 55px;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: #fff;
-    margin: 0 12%;
+    padding: 25px;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    margin: 0 10%;
 }
 
+
 .tittle h1 {
-    font-size: 48px;
-    font-weight: bold;
-    color: #046645;
-    margin-top: 18%;
+    font-size: 70px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.tittle h2 {
+    font-size: 55px;
+    color: #1E1E1E;
+    margin-top: 5px;
+    font-weight: 700;
 }
 
 .tittle p {
-    font-size: 18px;
-    color: #666;
-    margin-top: 10px;
+    font-size: 20px;
+    color: #555;
+    margin-top: 20px;
+    line-height: 1.6;
+    max-width: 550px;
 }
 
 .imageSection {
-    margin-top: 10%;
+    margin-top: 8%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
@@ -39,16 +53,39 @@
 
 .imageSection img {
     width: 100%;
+    margin: 0%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ✅ Make happyStudents image smaller and fixed height */
+.imageSection img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
 .happyStudents {
-    margin-top: -8%;
     grid-column: span 2;
-    height: 480px;     /* Try 150–200px depending on your screen */
-    object-fit: cover;
+    height: 420px;
     width: 100%;
-    border-radius: 10px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-top: -5%;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .parentFront {
+        grid-template-columns: 1fr;
+        text-align: center;
+        height: auto;
+    }
+    .imageSection {
+        grid-template-columns: 1fr 1fr;
+    }
+    .happyStudents {
+        height: 250px;
+    }
 }

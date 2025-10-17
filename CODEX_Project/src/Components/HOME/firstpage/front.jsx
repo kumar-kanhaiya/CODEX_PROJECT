@@ -10,7 +10,8 @@ const Front = () => {
         <>
             <div className="parentFront">
                 <div className="tittle">
-                    <h1><strong>Master Your Degree. Master Your Future :</strong></h1>
+                    <h1><strong>Master Your Degree. </strong></h1>
+                    <h2>Master Your Future :</h2>
                     <h3>
                         <p>
                             "Codex is the essential platform for the modern student, bridging the gap between academic success and technical literacy.
