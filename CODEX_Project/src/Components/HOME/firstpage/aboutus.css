@@ -66,3 +66,37 @@
         grid-template-columns: 1fr; /* 1 per row */
     }
 }
+
+
+.last{
+    margin: 0 12%;
+    margin-top: 60px;
+    font-size: 18px;
+    color: #666;
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+}
+
+.lasthai p{
+    margin: 0;
+    margin-right: 45%;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 15px;
+}
+.resorce h2{
+    margin-bottom: 15px;
+}
+.resorce{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.resorce a{
+    text-decoration: none;
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 15px;
+}

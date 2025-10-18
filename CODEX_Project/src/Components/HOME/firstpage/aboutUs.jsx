@@ -51,7 +51,38 @@ const AboutUs = () => {
                     </div>
                 </div>
             </div>
+            
+
         </div>
+        {/* footer with copyright information */}
+                <div className="last">
+                    <div className="lasthai">
+
+                    <h2>CODEX</h2>
+                    <p>Empowering students to conquer university exams and master future-ready coding skills
+                         through premium resources and guided community support.</p>
+                    </div>
+                    <div className="resorce">
+                        <h2>RESOURCES</h2>
+                        <a href="">Notes</a>
+                        <a href="">Previous Year Papers</a>
+                        <a href="">Coding</a>
+                        <a href="">Community Support</a>
+
+                    </div>
+                    <div className="connect">
+                        <h2>CONNECT</h2>
+                        <a href="https://github.com/kumar-kanhaiya" target='_blank'>
+                        <img src="https://img.icons8.com/?size=100&id=106564&format=png&color=000000" alt="" /></a>
+                        <a href="https://www.linkedin.com/in/kanhaiya-kumar-6560a833a/" target='_blank'>
+                        <img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="" /></a>
+                        <a href="https://leetcode.com/u/Kanhaiya_Kumar_/" target='_blank'>
+                        <img src="https://img.icons8.com/?size=100&id=wDGo581Ea5Nf&format=png&color=000000" alt="" /></a>
+                        
+                        
+                    </div>
+                    
+                </div>
         </>
 
     )
