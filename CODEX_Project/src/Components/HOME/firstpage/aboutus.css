@@ -1,0 +1,32 @@
+.aboutUsContainer {
+    width: 100%;
+    padding: 100px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.aboutUsContainer h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.aboutUsContainer h2 {
+    font-size: 54px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.features .cont  {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.features .cont div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
