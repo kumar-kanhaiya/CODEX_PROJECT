@@ -18,7 +18,7 @@ function App() {
       <Logos />
       <Second />
       <AboutUs />
-      <h2>Kanhaiya kumar</h2>
+      {/* <h2>Kanhaiya kumar</h2> */}
     </>
   )
 }

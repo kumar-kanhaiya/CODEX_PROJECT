@@ -77,7 +77,12 @@
     /* justify-content: space-around; */
     justify-content: space-between;
 }
-
+.lasthai h2{
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .lasthai p{
     margin: 0;
     margin-right: 45%;
@@ -92,6 +97,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+}
+
+.resorce h2{
+    background: linear-gradient(90deg, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .resorce a{
@@ -99,4 +111,34 @@
     color: #555;
     margin-bottom: 10px;
     font-size: 15px;
+}
+
+.connect{
+    background: linear-gradient(90deg, #4F46E5, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.connect a img{
+    width: 30px;
+    height: 30px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.finaltouch{
+    margin-top: 60px;
+    border-top: 1.5px solid #ddd;
+    padding: 20px 0;
+    text-align: center;
+}
+.finaltouch footer{
+    color: #888;
+    font-size: 14px;
+}
+.finaltouch a{
+    text-decoration: none;
+    color: #4F46E5;
+    font-weight: 600;
+    
 }
