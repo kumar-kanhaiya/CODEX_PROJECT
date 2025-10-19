@@ -1,4 +1,11 @@
-
+.selselectMain{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    margin: 0 12%;
+    margin-top: 2%;
+}
 
 .sem-select {
     display: flex;

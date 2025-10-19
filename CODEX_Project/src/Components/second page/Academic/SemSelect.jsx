@@ -1,12 +1,20 @@
 import './semSelect.css';
 import React from 'react';
 import Card from '../../second page/Card.jsx';
+import link1 from '../../../assets/img/1.png';
+import link2 from '../../../assets/img/2.png';
+import link3 from '../../../assets/img/3.png';
+import link4 from '../../../assets/img/4.jpeg';
+import link5 from '../../../assets/img/5.jpeg';
+import link6 from '../../../assets/img/6.jpeg';
+import link7 from '../../../assets/img/7.jpeg';
+import link8 from '../../../assets/img/8.jpeg';
 
 const semesters = [
   1,2,3,4,5,6,7,8
 ];
 
-const links = ["https://cdn.pixabay.com/photo/2025/07/16/15/01/karlsbad-9718003_1280.jpg",]
+const links = [link1, link2, link3, link4, link5, link6, link7, link8];
 
 const SemSelect = () => {
   return (
