@@ -1,0 +1,42 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 12px 0;
+}
+
+.card p {
+    color: #666;
+    cursor: pointer;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    color: #007bff;
+    cursor: pointer;
+    font-weight: 600;
+    height: 250px;
+    width: 200px;
+
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
