@@ -1,42 +1,38 @@
 .card {
-    border: 1px solid #ccc;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
+    padding: 12px;
+    margin: 0.5rem;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(2,6,23,0.06);
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.12);
 }
 
 .card img {
     max-width: 100%;
-    border-radius: 4px;
+    height: auto;
+    border-radius: 6px;
 }
 
 .card h3 {
-    font-size: 1.5em;
-    margin: 12px 0;
+    font-size: 1.15rem;
+    margin: 10px 0 6px;
 }
 
 .card p {
-    color: #666;
-    cursor: pointer;
+    color: #475569;
+    margin: 0;
 }
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    color: #007bff;
-    cursor: pointer;
-    font-weight: 600;
-    height: 250px;
-    width: 200px;
-
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
