@@ -1,0 +1,86 @@
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+.section {
+    padding: 20px;
+    height: 100vh;
+    border-radius: 20px; 
+    gap: 25px;
+    border: 1px solid #ddd;
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    
+    color: black;
+}
+
+.section:hover {
+    transform: scale(1.01);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.2) 100%);
+    transform: skewX(-25deg);
+    pointer-events: none;
+    animation: shimmer 3s infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-25deg); }
+    100% { transform: translateX(100%) skewX(-25deg); }
+}
+
+
+.imageSec{
+    height: 50%;
+    width: 100%;
+}
+
+.imageSec img{
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    object-fit: contain;
+    
+
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content h1 {
+    font-size: 65px;
+    font-weight: 700;
+    color: #111;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.content p {
+    font-size: 25px;
+    color: #222;
+    margin-top: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
