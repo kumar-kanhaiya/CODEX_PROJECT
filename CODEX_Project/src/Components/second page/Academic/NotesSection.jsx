@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const url = "http://localhost:5000/api/notes";
+const url = "http://localhost:8080/api/materials";
 
 const fetchNotes = async (semester, subject) => {
   try {
-    const response = await axios.get(url, {
-      params: { semester, subject },
-    });
+    const response = await axios.get(`${url}/${semester}/${subject}`);
+    console.log("Fetched notes:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching notes:", error);
