@@ -11,8 +11,8 @@ const Navbar = () => {
             </div>
             <div className="nav-items">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
+                <a href="#academic">Academic</a>
+                <a href="#coding">Coding</a>
                 <a href="#contact">Contact</a>
             </div>
             <div className="nav-toggle">

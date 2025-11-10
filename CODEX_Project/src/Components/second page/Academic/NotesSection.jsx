@@ -36,17 +36,17 @@ const NotesSection = () => {
 
   return (
     <div>
-      <h2 className="text-4xl flex justify-center items-center my-5.5 pt-8">
+      <h2 className="text-5xl font-bold flex justify-center items-center my-5.5 pt-8">
         Notes Section
       </h2>
 
-      <div className="selectors flex flex-col md:flex-row gap-4 justify-center items-center mt-6">
+      <div className="selectors flex flex-col md:flex-row gap-5 justify-center items-center mt-6">
         <div className="semester">
           {/* <h3 className="text-2xl flex justify-center items-center my-1.5 pt-3">
             Select Semester
           </h3> */}
           <select
-            className="border border-gray-300 rounded-md p-2 w-48 mx-auto block"
+            className="border border-gray-300 rounded-md p-25 w-60 mx-auto block"
             value={semester}
             onChange={(e) => {
               setSemester(e.target.value);
@@ -68,7 +68,7 @@ const NotesSection = () => {
           Select Subject
         </h3> */}
           <select
-            className="border border-gray-300 rounded-md p-2 w-48 mx-auto block"
+            className="border border-gray-300 rounded-md p-25 w-60 mx-auto block"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             disabled={!semester}
