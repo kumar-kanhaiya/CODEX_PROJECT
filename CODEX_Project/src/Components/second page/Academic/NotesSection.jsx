@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AnimatedContent from "./Materials/AnimatedContent";
+
 
 const url = "http://localhost:8080/api/materials";
 
 const fetchNotes = async (semester, subject) => {
   try {
-    const response = await axios.get(`${url}/2/PYTHON`);
+    const response = await axios.get(`${url}/${semester}/${subject}`);
     console.log("Fetched notes:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching notes:", error);
-    return [];
+    return {};
   }
 };
 
 const NotesSection = () => {
   const [semester, setSemester] = useState("");
   const [subject, setSubject] = useState("");
-  const [notes, setNotes] = useState(null);
+  const [notes, setNotes] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const subjectsBySemester = {
     1: ["BEE", "PHYSICS", "ENGLISH", "MATHS"],
@@ -30,87 +33,97 @@ const NotesSection = () => {
       alert("Please select both semester and subject.");
       return;
     }
+    setLoading(true);
     const data = await fetchNotes(semester, subject);
     setNotes(data);
+    setLoading(false);
   };
 
   return (
-    <div>
-      <h2 className="text-5xl font-bold flex justify-center items-center my-5.5 pt-8">
-        Notes Section
-      </h2>
+    <AnimatedContent
+      distance={150}
+      direction="horizontal"
+      reverse={false}
+      duration={1.5}
+      ease="bounce.out"
+      initialOpacity={0.1}
+      animateOpacity
+      scale={1.8}
+      threshold={0.2}
+      delay={0.2}
+    >
+      <div className="h-full w-full">
+        <h2 className="text-5xl font-bold flex justify-center items-center mt-10">
+          Notes Section
+        </h2>
 
-      <div className="selectors flex flex-col md:flex-row gap-5 justify-center items-center mt-6">
-        <div className="semester">
-          {/* <h3 className="text-2xl flex justify-center items-center my-1.5 pt-3">
-            Select Semester
-          </h3> */}
-          <select
-            className="border border-gray-300 rounded-md p-25 w-60 mx-auto block"
-            value={semester}
-            onChange={(e) => {
-              setSemester(e.target.value);
-              setSubject("");
-              setNotes([]);
-            }}
+        {/* Selectors */}
+        <div className="flex flex-col md:flex-row justify-evenly items-center pt-[12vh] gap-6">
+          {/* Semester Selector */}
+          <div className="semester">
+            <select
+              className="border border-gray-300 rounded-md p-2 w-60 mx-auto block"
+              value={semester}
+              onChange={(e) => {
+                setSemester(e.target.value);
+                setSubject("");
+                setNotes({});
+              }}
+            >
+              <option value="">--Select Semester--</option>
+              {[...Array(8)].map((_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  Semester {i + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Subject Selector */}
+          <div className="subjects">
+            <select
+              className="border border-gray-300 rounded-md p-2 w-60 mx-auto block"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              disabled={!semester}
+            >
+              <option value="">--Select Subject--</option>
+              {subjectsBySemester[semester]?.map((subj, index) => (
+                <option key={index} value={subj}>
+                  {subj}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className={`bg-blue-500 text-white rounded-md p-2 mx-auto block mt-4 transition-all ${
+              loading
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-blue-700 hover:scale-105"
+            }`}
           >
-            <option value="">--Select Semester--</option>
-            {[...Array(8)].map((_, i) => (
-              <option key={i + 1} value={i + 1}>
-                Semester {i + 1}
-              </option>
-            ))}
-          </select>
+            {loading ? "Loading..." : "Submit"}
+          </button>
         </div>
 
-        <div className="subjects">
-          {/* <h3 className="text-2xl flex justify-center items-center my-1.5 pt-3">
-          Select Subject
-        </h3> */}
-          <select
-            className="border border-gray-300 rounded-md p-25 w-60 mx-auto block"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-            disabled={!semester}
-          >
-            <option value="">--Select Subject--</option>
-            {subjectsBySemester[semester]?.map((subj, index) => (
-              <option key={index} value={subj}>
-                {subj}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Notes Display */}
+        <div className="data mt-10">
+          {notes?.units?.length > 0 ? (
+            <div>
+              <div className="text-black text-center mb-8">
+                <h1 className="text-3xl font-semibold">{notes.title}</h1>
+                <p className="text-gray-600 text-base mt-2">{notes.about}</p>
+              </div>
 
-            {/* Submit Button */}
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-500 text-white rounded-md p-2 mx-auto block mt-4"
-      >
-        Submit
-      </button>
-
-      </div>
-
-      
-
-      {/* Notes Display */}
-      <div className="data mt-8">
-        {/* If we have notes object show header + units */}
-        {notes ? (
-          <div>
-            <div className="text-black">
-              <h1 className="text-2xl font-semibold">{notes.title}</h1>
-              <div className="text-gray-600 text-base mt-2">{notes.about}</div>
-            </div>
-
-            {/* Units displayed in horizontal row; each unit is a box with image/title/about/link */}
-            {Array.isArray(notes.units) && notes.units.length > 0 ? (
-              <div className="mt-6 flex gap-4 overflow-x-auto py-2">
+              <div className="mt-6 flex gap-6 overflow-x-auto py-4 px-2 scrollbar-thin scrollbar-thumb-gray-400">
                 {notes.units.map((unit, index) => (
                   <div
                     key={index}
-                    className="min-w-[18rem] bg-white rounded-lg shadow-md p-4 shrink-0"
+                    className="min-w-[18rem] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all p-4 shrink-0 border border-gray-100"
                   >
                     <div className="h-40 w-full overflow-hidden rounded-md">
                       <img
@@ -119,7 +132,9 @@ const NotesSection = () => {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <h3 className="mt-3 font-bold text-lg">{unit.title}</h3>
+                    <h3 className="mt-3 font-bold text-lg text-gray-800">
+                      {unit.title}
+                    </h3>
                     <p className="text-gray-600 text-sm mt-1 line-clamp-3">
                       {unit.about}
                     </p>
@@ -127,28 +142,26 @@ const NotesSection = () => {
                       href={unit.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block font-bold mt-3 bg-blue-500 cursor-pointer text-white px-3 py-1 rounded hover:bg-blue-700 m-3"
+                      className="inline-block font-semibold mt-3 bg-blue-500 cursor-pointer text-white px-3 py-1 rounded-md hover:bg-blue-700 transition-all"
                     >
                       Download Notes
                     </a>
                   </div>
                 ))}
               </div>
-            ) : (
-              <p className="text-gray-500 mt-4">
-                No units available for this material.
-              </p>
-            )}
-          </div>
-        ) : (
-          <p className="text-center text-gray-500 mt-6">
-            {semester && subject
-              ? "Click Submit to load notes."
-              : "Please select semester and subject."}
-          </p>
-        )}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 mt-6">
+              {semester && subject
+                ? loading
+                  ? "Fetching notes..."
+                  : "Click Submit to load notes."
+                : "Please select semester and subject."}
+            </p>
+          )}
+        </div>
       </div>
-    </div>
+    </AnimatedContent>
   );
 };
 
