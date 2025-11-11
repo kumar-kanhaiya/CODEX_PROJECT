@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import AnimatedContent from "./Materials/AnimatedContent";
 
-
-const url = "http://localhost:8080/api/materials";
+const url = "http://localhost:8082/api/materials";
 
 const fetchNotes = async (semester, subject) => {
   try {
-    const response = await axios.get(`${url}/${semester}/${subject}`);
+    const response = await axios.get(`${url}/2/PYTHON`);
     console.log("Fetched notes:", response.data);
     return response.data;
   } catch (error) {
@@ -48,21 +47,29 @@ const NotesSection = () => {
       ease="bounce.out"
       initialOpacity={0.1}
       animateOpacity
-      scale={1.8}
+      scale={1}
       threshold={0.2}
-      delay={0.2}
+      delay={0.4}
     >
-      <div className="h-full w-full">
-        <h2 className="text-5xl font-bold flex justify-center items-center mt-10">
-          Notes Section
-        </h2>
+      <div className="w-full px-6 md:px-20 py-12 bg-gradient-to-b from-white to-gray-50">
+        {/* HEADER */}
+        <div className="text-center mb-12 padding-top-12">
+          <h2 className="text-5xl font-extrabold text-gray-800 mb-4 tracking-tight">
+            Notes Section
+          </h2>
+          <p className="text-2xl text-gray-500 font-medium">
+            Knowledge organized, success simplified.
+          </p>
+        </div>
 
-        {/* Selectors */}
-        <div className="flex flex-col md:flex-row justify-evenly items-center pt-[12vh] gap-6">
+        {/* SEARCH BAR CONTAINER */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 bg-white py-10 px-8 rounded-2xl shadow-lg
+         border border-gray-100 w-full md:w-4/5 mx-auto mb-16 size-32 transition-transform hover:shadow-xl hover:-translate-y-0.5">
           {/* Semester Selector */}
-          <div className="semester">
+          <div className="w-full md:w-1/3">
             <select
-              className="border border-gray-300 rounded-md p-2 w-60 mx-auto block"
+              className="border border-gray-300 rounded-xl 
+              p-3 w-full shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
               value={semester}
               onChange={(e) => {
                 setSemester(e.target.value);
@@ -70,7 +77,7 @@ const NotesSection = () => {
                 setNotes({});
               }}
             >
-              <option value="">--Select Semester--</option>
+              <option value="">-- Select Semester --</option>
               {[...Array(8)].map((_, i) => (
                 <option key={i + 1} value={i + 1}>
                   Semester {i + 1}
@@ -80,14 +87,14 @@ const NotesSection = () => {
           </div>
 
           {/* Subject Selector */}
-          <div className="subjects">
+          <div className="w-full md:w-1/3">
             <select
-              className="border border-gray-300 rounded-md p-2 w-60 mx-auto block"
+              className="border border-gray-300 rounded-xl p-3 w-full shadow-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               disabled={!semester}
             >
-              <option value="">--Select Subject--</option>
+              <option value="">-- Select Subject --</option>
               {subjectsBySemester[semester]?.map((subj, index) => (
                 <option key={index} value={subj}>
                   {subj}
@@ -100,21 +107,21 @@ const NotesSection = () => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className={`bg-blue-500 text-white rounded-md p-2 mx-auto block mt-4 transition-all ${
+            className={`text-white font-semibold rounded-xl px-8 py-3 w-full md:w-1/4 transition-all ${
               loading
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-blue-700 hover:scale-105"
+                ? "bg-blue-300 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg hover:scale-105"
             }`}
           >
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>
 
-        {/* Notes Display */}
-        <div className="data mt-10">
+        {/* NOTES DISPLAY */}
+        <div className="data mt-16">
           {notes?.units?.length > 0 ? (
             <div>
-              <div className="text-black text-center mb-8">
+              <div className="text-black text-center mb-10">
                 <h1 className="text-3xl font-semibold">{notes.title}</h1>
                 <p className="text-gray-600 text-base mt-2">{notes.about}</p>
               </div>
@@ -151,7 +158,7 @@ const NotesSection = () => {
               </div>
             </div>
           ) : (
-            <p className="text-center text-gray-500 mt-6">
+            <p className="text-center text-gray-500 mt-10">
               {semester && subject
                 ? loading
                   ? "Fetching notes..."
