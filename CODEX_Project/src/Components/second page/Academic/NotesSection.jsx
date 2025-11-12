@@ -63,8 +63,8 @@ const NotesSection = () => {
         </div>
 
         {/* SEARCH BAR CONTAINER */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 bg-white py-10 px-8 rounded-2xl shadow-lg
-         border border-gray-100 w-full md:w-4/5 mx-auto mb-16 size-32 transition-transform hover:shadow-xl hover:-translate-y-0.5">
+        <div className="flex flex-col md:flex-row justify-between items-center   gap-8 bg-white py-10 px-8 rounded-2xl shadow-lg
+         border border-gray-100  md:w-4/5 mx-auto mb-16 size-22 transition-transform hover:shadow-xl hover:-translate-y-0.5">
           {/* Semester Selector */}
           <div className="w-full md:w-1/3">
             <select
