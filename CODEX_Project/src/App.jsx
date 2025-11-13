@@ -13,19 +13,33 @@ import NotesSection from './Components/second page/Academic/NotesSection.jsx'
 import Coding from './Components/second page/Coding/Coding.jsx'
 import PlaylistPage from './Components/second page/Coding/PlaylistPage.jsx'
 // import home from './Components/HOME/firstpage/Home.jsx'
+import { useEffect } from 'react';
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
+
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {
+  useEffect(() => {
+		createChat({
+			webhookUrl: 'https://dexter8178.app.n8n.cloud/webhook/20e7feff-ce42-41e1-ac23-4b0bc57f88bf/chat'
+		});
+	}, []);
+  
   return (
     <>
-    <Navbar />
-    {/* <Front />
+    {/* <Navbar />
+    <Front />
     <Logos />
     <Second />
+    
     <AboutUs /> */}
+    {/* <Navbar />
+    <NotesSection /> */}
     {/* <home/> */}
+    <Navbar />
     <Router>
       <Routes>
         <Route path="/" element={<Coding />} />
