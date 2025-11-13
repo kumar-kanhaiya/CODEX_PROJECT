@@ -12,6 +12,7 @@ import SemSelect from './Components/second page/Academic/SemSelect.jsx'
 import NotesSection from './Components/second page/Academic/NotesSection.jsx'
 import Coding from './Components/second page/Coding/Coding.jsx'
 import PlaylistPage from './Components/second page/Coding/PlaylistPage.jsx'
+// import home from './Components/HOME/firstpage/Home.jsx'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,11 @@ function App() {
   return (
     <>
     <Navbar />
+    {/* <Front />
+    <Logos />
+    <Second />
+    <AboutUs /> */}
+    {/* <home/> */}
     <Router>
       <Routes>
         <Route path="/" element={<Coding />} />

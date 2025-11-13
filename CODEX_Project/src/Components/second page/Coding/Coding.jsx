@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:8082/api/coding";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL + "/api/coding";
+
 
 const Coding = () => {
   const [codings, setCodings] = useState([]);
   const [selectedCoding, setSelectedCoding] = useState(null);
   const [parts, setParts] = useState([]);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchAllCodings = async () => {
