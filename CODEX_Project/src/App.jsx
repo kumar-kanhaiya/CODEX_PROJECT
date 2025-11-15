@@ -19,6 +19,7 @@ import { createChat } from '@n8n/chat';
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ChatWidget from './Components/ChatWidget.jsx'
 
 
 function App() {
@@ -40,12 +41,14 @@ function App() {
     <NotesSection /> */}
     {/* <home/> */}
     <Navbar />
+    {/* <NotesSection /> */}
     <Router>
       <Routes>
         <Route path="/" element={<Coding />} />
         <Route path="/playlist/:playlistId" element={<PlaylistPage />} />
       </Routes>
     </Router>
+    <ChatWidget />
     </>
   );
 }
