@@ -20,14 +20,16 @@ import { createChat } from '@n8n/chat';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ChatWidget from './Components/ChatWidget.jsx'
+import Chatbot from './Components/ChatBot/Chatbot.jsx';
+
 
 
 function App() {
-  useEffect(() => {
-		createChat({
-			webhookUrl: 'https://dexter8178.app.n8n.cloud/webhook/20e7feff-ce42-41e1-ac23-4b0bc57f88bf/chat'
-		});
-	}, []);
+  // useEffect(() => {
+	// 	createChat({
+	// 		webhookUrl: 'https://dexter8178.app.n8n.cloud/webhook/20e7feff-ce42-41e1-ac23-4b0bc57f88bf/chat'
+	// 	});
+	// }, []);
   
   return (
     <>
@@ -48,7 +50,9 @@ function App() {
         <Route path="/playlist/:playlistId" element={<PlaylistPage />} />
       </Routes>
     </Router>
-    <ChatWidget />
+
+    {/* <ChatWidget /> */}
+    <Chatbot />
     </>
   );
 }
