@@ -2,17 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 .parentFront {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 55px;
+  background-color: rgb(245, 245, 242); /* light gray base */
+
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 25px;
-    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    /* background: linear-gradient(135deg, #eef2ff, #ffffff); */
+    border-radius: 2%;
     margin: 0 10%;
 }
 
@@ -57,11 +61,11 @@
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
 .imageSection img:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 

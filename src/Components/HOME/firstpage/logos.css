@@ -17,7 +17,7 @@
   filter: grayscale(100%);
   transition: filter 0.3s ease, transform 0.3s ease;
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.9;
 }
 
 .logoImage:hover {
