@@ -6,36 +6,39 @@ import logo from '../../../assets/logo.png';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <>
-            <div className="parent">
-                <div className="logo">
-                    <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                        <img src={logo} alt="Logo" />
-                    </Link>
-                </div>
+        <div className="parent">
+            <div className="logo">
+                <Link to="/" onClick={closeMenu}>
+                    <img src={logo} alt="Logo" />
+                </Link>
+            </div>
 
-                <div className={`nav-items ${isMenuOpen ? 'open' : ''}`}>
-                    <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-                    <Link to="/academic" onClick={() => setIsMenuOpen(false)}>Academic</Link>
-                    <Link to="/coding" onClick={() => setIsMenuOpen(false)}>Coding</Link>
-                    <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-                </div>
+            <div className={`nav-items ${isMenuOpen ? 'open' : ''}`}>
+                <Link to="/" onClick={closeMenu}>Home</Link>
+                <Link to="/academic" onClick={closeMenu}>Academic</Link>
+                <Link to="/coding" onClick={closeMenu}>Coding</Link>
+                <Link to="/contact" onClick={closeMenu}>Contact</Link>
 
-                <div className="nav-toggle" onClick={toggleMenu}>
-                    <button>☰</button>
-                </div>
-
-                <div className="auth-btn">
-                    <button className="login-btn">Login</button>
-                    <button className="signup-btn">Sign Up</button>
+                {/* Mobile-only auth buttons */}
+                <div className="mobile-auth">
+                    <Link to="/login" onClick={closeMenu}>Login</Link>
+                    <Link to="/signup" onClick={closeMenu}>Sign Up</Link>
                 </div>
             </div>
-        </>
+
+            <div className="nav-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <button>☰</button>
+            </div>
+
+            {/* Desktop auth buttons */}
+            <div className="auth-btn">
+                <Link to="/login" className="login-btn">Login</Link>
+                <Link to="/signup" className="signup-btn">Sign Up</Link>
+            </div>
+        </div>
     );
 };
 
