@@ -101,7 +101,7 @@ const PlaylistPage = () => {
 
           <div className="flex-1 flex flex-col items-center p-6 overflow-y-auto">
             {selectedVideo ? (
-              <div className="w-full max-w-7xl">
+              <div className="w-full max-w-5xl">
                 <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-lg">
                   <iframe
                     className="w-full h-full"
