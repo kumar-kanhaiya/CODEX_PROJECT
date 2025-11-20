@@ -73,10 +73,30 @@ const PlaylistPage = () => {
 
         {/* Responsive Layout */}
         <div className="flex flex-col md:flex-row flex-1">
+          {/* Video Area - On mobile, this comes first (top), on desktop it's on the right */}
+          <div className="flex-1 flex flex-col items-center p-4 overflow-y-auto order-1 md:order-2">
+            {selectedVideo ? (
+              <div className="w-full max-w-5xl">
+                <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
+                    title={selectedVideo.title}
+                    allowFullScreen
+                  ></iframe>
+                </div>
 
-          {/* Sidebar */}
-          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-auto h-screen">
+                <h2 className="mt-4 text-2xl font-bold text-gray-600">
+                  {selectedVideo.title}
+                </h2>
+              </div>
+            ) : (
+              <p className="text-gray-500 text-lg">Loading video...</p>
+            )}
+          </div>
 
+          {/* Sidebar - On mobile, this comes second (bottom), on desktop it's on the left */}
+          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-auto h-screen order-2 md:order-1">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               Upcoming Videos
             </h2>
@@ -103,28 +123,6 @@ const PlaylistPage = () => {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Video Area */}
-          <div className="flex-1 flex flex-col items-center p-4 overflow-y-auto">
-            {selectedVideo ? (
-              <div className="w-full max-w-5xl">
-                <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
-                    title={selectedVideo.title}
-                    allowFullScreen
-                  ></iframe>
-                </div>
-
-                <h2 className="mt-4 text-2xl font-bold text-gray-600">
-                  {selectedVideo.title}
-                </h2>
-              </div>
-            ) : (
-              <p className="text-gray-500 text-lg">Loading video...</p>
-            )}
           </div>
         </div>
       </div>
