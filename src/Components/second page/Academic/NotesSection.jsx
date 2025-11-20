@@ -283,6 +283,102 @@ const NotesSection = () => {
         </div>
       </div>
     {/* </AnimatedContent> */}
+    <footer className="bg-gray-900 text-gray-300">
+  <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
+      {/* Brand Section */}
+      <div className="space-y-5 lg:col-span-1">
+        <h2 className="text-3xl font-bold text-white tracking-wider">CODEX</h2>
+        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+          Empowering students to conquer university exams and master future-ready coding skills 
+          through premium resources and guided community support.
+        </p>
+      </div>
+
+      {/* Resources */}
+      <div className="space-y-5">
+        <h3 className="text-xl font-semibold text-white">RESOURCES</h3>
+        <ul className="space-y-5 space-y-3">
+          {['Notes', 'Previous Year Papers', 'Coding', 'Community Support'].map((item) => (
+            <li key={item}>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Connect */}
+      <div className="space-y-5">
+        <h3 className="text-xl font-semibold text-white">CONNECT</h3>
+        <div className="flex space-x-6">
+          <a
+            href="https://github.com/kumar-kanhaiya"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=106564&format=png&color=FFFFFF"
+              alt="GitHub"
+              className="w-8 h-8"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kanhaiya-kumar-6560a833a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=FFFFFF"
+              alt="LinkedIn"
+              className="w-8 h-8"
+            />
+          </a>
+          <a
+            href="https://leetcode.com/u/Kanhaiya_Kumar_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform duration-200"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=wDGo581Ea5Nf&format=png&color=FFFFFF"
+              alt="LeetCode"
+              className="w-8 h-8"
+            />
+          </a>
+        </div>
+      </div>
+
+      {/* Empty spacer for large screens to balance layout */}
+      <div className="hidden lg:block"></div>
+    </div>
+
+    {/* Bottom Section */}
+    <div className="mt-12 pt-8 border-t border-gray-800">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <p className="text-gray-500">© 2025 CODEX. All rights reserved.</p>
+        <p className="text-gray-400 text-center md:text-right">
+          Made with <span className="text-red-500">❤️</span> by{' '}
+          <a
+            href="https://portfolio-sua7.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white font-medium hover:underline"
+          >
+            Kanhaiya Kumar
+          </a>{' '}
+          & Shubham Jha
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
     </>
   );
 };

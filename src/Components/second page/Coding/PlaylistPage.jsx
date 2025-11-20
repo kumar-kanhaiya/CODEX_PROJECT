@@ -75,7 +75,7 @@ const PlaylistPage = () => {
               Upcoming Videos
             </h2>
 
-            <ul className="space-y-3 my-5">
+            <ul className="space-y-3 my-5 ml-5">
               {videos.map((video, index) => (
                 <li
                   key={index}
