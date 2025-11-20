@@ -75,7 +75,7 @@ const PlaylistPage = () => {
         <div className="flex flex-col md:flex-row flex-1">
 
           {/* Sidebar */}
-          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-auto h-full">
+          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-scroll h-full">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               Upcoming Videos
             </h2>
