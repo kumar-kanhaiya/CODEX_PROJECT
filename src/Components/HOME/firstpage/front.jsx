@@ -19,7 +19,7 @@ const Front = () => {
                             guided pathways—complete with video lectures—to launch disrupted students into the world of coding.
                         </p>
                         <button className="getStartedBtn" >
-                            <a href="/academic">Get Started</a>
+                            <a href="/coding">Get Started</a>
                             </button>
                     </h3>
                 </div>

@@ -8,6 +8,8 @@ const Second = () => {
     return (
         <>
         <div className="container">
+            <a href="/academic">
+
             <div className="section" id="section1">
                 <div className="imageSec">
                     <img src={academic} alt="Image 1" />
@@ -24,6 +26,10 @@ const Second = () => {
 
 
             </div>
+            </a>
+
+            <a href="/coding">
+
             <div className="section" id="section2">
                 <div className="imageSec">
                     <img src={coding} alt="Image 2" />
@@ -39,6 +45,8 @@ const Second = () => {
                 </div>
 
             </div>
+            </a>
+
         </div>
     
         </>

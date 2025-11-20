@@ -65,14 +65,14 @@ const Coding = () => {
 
         {/* Full Width Grid */}
         <div className="w-80% px-3 sm:px-4 lg:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 md:gap-7 max-w-10xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 md:gap-7 max-w-10xl mx-auto m-12">
             {loading
               ? Array(15).fill().map((_, i) => <Skeleton key={i} />)
               : codings.map((item) => (
                   <div
                     key={item.codingName}
                     onClick={() => handleClick(item.codingName)}
-                    className="bg-white rounded-2xl shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer overflow-hidden"
+                    className="bg-white rounded-2xl shadow-md hover:shadow-2xl hover:scale-[1] transition-all duration-300 cursor-pointer overflow-hidden m -4 "
                   >
                     {/* Image */}
                     <div className="h-56 bg-gray-200">
@@ -88,10 +88,10 @@ const Coding = () => {
 
                     {/* Content with good spacing */}
                     <div className="p-6 pt-5 pb-7">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-2">
+                      <h3 className="text-xl flex flex-col justify-center items-center font-semibold text-gray-800 mb-3 line-clamp-2">
                         {item.codingName}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 flex flex-col justify-center items-center">
                         {item.about || "Curated playlists to master this topic"}
                       </p>
                     </div>
