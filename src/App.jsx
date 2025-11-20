@@ -24,6 +24,7 @@ import Chatbot from './Components/ChatBot/Chatbot.jsx';
 import FirstFinal from "./Components/HOME/firstpage/firstFinal.jsx";
 // import Contact from './Components/HOME/firstpage/contact.jsx';
 import Contact from "./Components/HOME/Contact.jsx";
+import NotFound from './ErrorPage/NotFound.jsx'
 
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/coding" element={<Coding />} />
         <Route path="/contact" element={<Contact  />} />
         <Route path="/playlist/:playlistId" element={<PlaylistPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
 
