@@ -72,10 +72,10 @@ const PlaylistPage = () => {
         </div>
 
         {/* Responsive Layout */}
-        <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
+        <div className="flex flex-col md:flex-row flex-1">
 
           {/* Sidebar */}
-          <div className="w-full md:w-1/3 lg:w-1/5 overflow-y-auto bg-white border-r border-gray-200 p-4 max-h-[50vh] md:max-h-none">
+          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-auto h-full">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               Upcoming Videos
             </h2>
