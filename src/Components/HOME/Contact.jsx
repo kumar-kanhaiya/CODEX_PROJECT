@@ -41,7 +41,7 @@ const Contact = () => {
       {/* Full-screen sexy gradient background with subtle animation */}
       <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden
                           bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900
-                          bg-[length:200%_200%] animate-gradient-xy">
+                          bg-[length:200%_200%] animate-gradient-xy z-0">
         
         {/* Floating particles background */}
         <div className="absolute inset-0 opacity-30">

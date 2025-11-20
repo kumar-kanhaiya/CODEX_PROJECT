@@ -74,90 +74,69 @@ const NotesSection = () => {
         </div>
 
         {/* SEARCH BAR CONTAINER */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 h-30 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 md:w-full mx-auto mb-12 md:mb-16 transition-all duration-300 hover:shadow-2xl md:hover:shadow-3xl hover:scale-[1] md:hover:scale-[1]">
-          {/* Semester Selector */}
-          <div className="w-full md:w-1/3 max-h-full">
-            <label className="block text-sm font-semibold text-slate-700 mb-4 md:mb-6">
-              Semester
-            </label>
-            <select
-              className="border border-slate-300 rounded-xl md:rounded-2xl p-3 md:p-4 w-full shadow-lg text-slate-700 focus:ring-4 focus:ring-blue-400 focus:border-blue-400 transition-all duration-300 bg-white/50 backdrop-blur-sm"
-              value={semester}
-              onChange={(e) => {
-                setSemester(e.target.value);
-                setSubject("");
-                setNotes({});
-              }}
-            >
-              <option value="">-- Select Semester --</option>
-              {[...Array(8)].map((_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  Semester {i + 1}
-                </option>
-              ))}
-            </select>
-          </div>
+<div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 w-full mx-auto mb-12 md:mb-16">
 
-          {/* Subject Selector */}
-          <div className="w-full md:w-1/3 max-h-full mb-4 md:mb-6">
-            <label className="block text-sm font-semibold text-slate-700 mb-4 md:mb-6">
-              Subject
-            </label>
-            <select
-              className="border border-slate-300 rounded-xl md:rounded-2xl p-3 md:p-4 w-full shadow-lg text-slate-700 focus:ring-4 focus:ring-blue-400 focus:border-blue-400 transition-all duration-300 bg-white/50 backdrop-blur-sm"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              disabled={!semester}
-            >
-              <option value="">-- Select Subject --</option>
-              {subjectsBySemester[semester]?.map((subj, index) => (
-                <option key={index} value={subj}>
-                  {subj}
-                </option>
-              ))}
-            </select>
-          </div>
+  {/* Semester Selector */}
+  <div className="w-full md:w-1/3">
+    <label className="block text-sm font-semibold text-slate-700 mb-4">
+      Semester
+    </label>
+    <select
+      className="border border-slate-300 rounded-xl p-4 w-full shadow-lg text-slate-700
+                 focus:ring-4 focus:ring-blue-400 focus:border-blue-400 transition-all bg-white/50 backdrop-blur-sm"
+      value={semester}
+      onChange={(e) => {
+        setSemester(e.target.value);
+        setSubject("");
+        setNotes({});
+      }}
+    >
+      <option value="">-- Select Semester --</option>
+      {[...Array(8)].map((_, i) => (
+        <option key={i + 1} value={i + 1}>
+          Semester {i + 1}
+        </option>
+      ))}
+    </select>
+  </div>
 
-          {/* Submit Button */}
-          <div className="w-full md:w-1/4 max-h-full flex justify-center items-center mt-2 md:mt-6">
-            <button
-              onClick={handleSubmit}
-              disabled={loading}
-              className={`text-white text-1.8xl font-bold rounded-xl md:rounded-2xl px-6 md:px-8  py-8 md:py-8 w-full transition-all duration-300 transform ${
-                loading
-                  ? "bg-gradient-to-r from-blue-300 to-purple-300 cursor-not-allowed shadow-inner"
-                  : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl md:hover:shadow-2xl hover:scale-105 active:scale-82"
-              }`}
-            >
-              {loading ? (
-                <div className="flex items-center justify-center">
-                  <svg
-                    className="animate-spin h-5 w-5 mr-2"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                      fill="none"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  Loading...
-                </div>
-              ) : ( 
-                "Submit"
-              )}
-            </button>
-          </div>
-        </div>
+  {/* Subject Selector */}
+  <div className="w-full md:w-1/3">
+    <label className="block text-sm font-semibold text-slate-700 mb-4">
+      Subject
+    </label>
+    <select
+      className="border border-slate-300 rounded-xl p-4 w-full shadow-lg text-slate-700
+                 focus:ring-4 focus:ring-blue-400 focus:border-blue-400 transition-all bg-white/50 backdrop-blur-sm"
+      value={subject}
+      onChange={(e) => setSubject(e.target.value)}
+      disabled={!semester}
+    >
+      <option value="">-- Select Subject --</option>
+      {subjectsBySemester[semester]?.map((subj, index) => (
+        <option key={index} value={subj}>
+          {subj}
+        </option>
+      ))}
+    </select>
+  </div>
+
+  {/* Submit Button */}
+  <div className="w-full md:w-1/4 flex justify-center items-center">
+    <button
+      onClick={handleSubmit}
+      disabled={loading}
+      className={`text-white text-xl font-bold rounded-xl px-8 py-6 w-full transition-all ${
+        loading
+          ? "bg-gradient-to-r from-blue-300 to-purple-300 cursor-not-allowed"
+          : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl hover:scale-105"
+      }`}
+    >
+      {loading ? "Loading..." : "Submit"}
+    </button>
+  </div>
+</div>
+
 
         {/* NOTES DISPLAY */}
         <div className="data mt-12 md:mt-16">
