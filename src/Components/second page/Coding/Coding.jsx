@@ -107,10 +107,12 @@ const Coding = () => {
           </div>
         )}
       </div>
-      <footer className="relative bg-gradient-to-br from-gray-950 via-purple-950 to-gray-950 text-gray-300 overflow-hidden">
-  {/* Subtle background pattern */}
-  <div className="absolute inset-0 opacity-10">
-    <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 via-pink-600 to-transparent"></div>
+
+
+      <footer className="relative bg-white text-gray-700 overflow-hidden border-t border-gray-200 p-12 flex  justify-center items-center mt-12">
+  {/* Subtle background pattern - optional, kept minimal */}
+  <div className="absolute inset-0 opacity-5">
+    <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-transparent"></div>
   </div>
 
   <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-20 lg:py-24">
@@ -118,32 +120,32 @@ const Coding = () => {
       
       {/* Brand Section - Wider on large screens */}
       <div className="lg:col-span-5 space-y-8">
-        <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-black text-gray-900">
           CODEX
         </h1>
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-md">
+        <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-md">
           Empowering students to conquer university exams and master future-ready coding skills 
           through premium resources and guided community support.
         </p>
         
         {/* Optional tagline */}
-        <p className="text-purple-400 font-medium text-sm tracking-wider">
+        <p className="text-blue-600 font-medium text-sm tracking-wider">
           Learn • Code • Conquer
         </p>
       </div>
 
       {/* Resources */}
       <div className="lg:col-span-3 space-y-8">
-        <h3 className="text-xl font-bold text-white tracking-wider">RESOURCES</h3>
+        <h3 className="text-xl font-bold text-gray-900 tracking-wider">RESOURCES</h3>
         <ul className="space-y-5">
           {['Notes', 'Previous Year Papers', 'Coding Platforms', 'Community Support'].map((item, idx) => (
             <li key={idx}>
               <a
                 href="#"
-                className="group flex items-center text-gray-400 hover:text-white transition-all duration-300 
+                className="group flex items-center text-gray-600 hover:text-gray-900 transition-all duration-300 
                          transform hover:translate-x-2 text-lg"
               >
-                <span className="mr-3 text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="mr-3 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
                   →
                 </span>
                 {item}
@@ -155,17 +157,17 @@ const Coding = () => {
 
       {/* Connect - Social Icons */}
       <div className="lg:col-span-4 space-y-8">
-        <h3 className="text-xl font-bold text-white tracking-wider">CONNECT WITH US</h3>
+        <h3 className="text-xl font-bold text-gray-900 tracking-wider">CONNECT WITH US</h3>
         <div className="flex space-x-8">
           <a
             href="https://github.com/kumar-kanhaiya"
             target="_blank"
-            className="group p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 
-                     hover:bg-purple-600/20 hover:border-purple-500 transition-all duration-500 
+            className="group p-4 bg-gray-50 rounded-2xl border border-gray-200 
+                     hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 
                      hover:scale-110 hover:-translate-y-2"
           >
             <img
-              src="https://img.icons8.com/ios-filled/100/ffffff/github.png"
+              src="https://img.icons8.com/ios-filled/100/000000/github.png"
               alt="GitHub"
               className="w-8 h-8"
             />
@@ -174,12 +176,12 @@ const Coding = () => {
           <a
             href="https://www.linkedin.com/in/kanhaiya-kumar-6560a833a/"
             target="_blank"
-            className="group p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 
-                     hover:bg-blue-600/20 hover:border-blue-500 transition-all duration-500 
+            className="group p-4 bg-gray-50 rounded-2xl border border-gray-200 
+                     hover:bg-blue-50 hover:border-blue-300 transition-all duration-500 
                      hover:scale-110 hover:-translate-y-2"
           >
             <img
-              src="https://img.icons8.com/ios-filled/100/ffffff/linkedin.png"
+              src="https://img.icons8.com/ios-filled/100/000000/linkedin.png"
               alt="LinkedIn"
               className="w-8 h-8"
             />
@@ -188,12 +190,12 @@ const Coding = () => {
           <a
             href="https://leetcode.com/u/Kanhaiya_Kumar_/"
             target="_blank"
-            className="group p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 
-                     hover:bg-orange-600/20 hover:border-orange-500 transition-all duration-500 
+            className="group p-4 bg-gray-50 rounded-2xl border border-gray-200 
+                     hover:bg-orange-50 hover:border-orange-300 transition-all duration-500 
                      hover:scale-110 hover:-translate-y-2"
           >
             <img
-              src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/100/ffffff/external-leetcode-a-social-platform-for-software-engineers-to-solve-coding-challenges-logo-filled-tal-revivo.png"
+              src="https://img.icons8.com/?size=100&id=wDGo581Ea5Nf&format=png&color=000000"
               alt="LeetCode"
               className="w-8 h-8"
             />
@@ -203,31 +205,32 @@ const Coding = () => {
     </div>
 
     {/* Bottom Bar */}
-    <div className="mt-20 pt-10 border-t border-gray-800">
+    <div className="mt-20 pt-10 border-t border-gray-300">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm md:text-base">
         <p className="text-gray-500">© 2025 CODEX. Made for champions.</p>
         
-        <p className="text-center text-gray-400">
+        <p className="text-center text-gray-600">
           Crafted with 
           <span className="text-red-500 text-xl mx-2 animate-pulse">❤️</span> 
           by 
           <a
             href="https://portfolio-sua7.vercel.app/"
             target="_blank"
-            className="text-white font-bold hover:text-purple-400 transition mx-1"
+            className="text-gray-900 font-bold hover:text-blue-600 transition mx-1"
           >
             Kanhaiya Kumar
           </a>
           &
-          <span className="text-white font-bold mx-1">Shubham Jha</span>
+          <span className="text-gray-900 font-bold mx-1">Shubham Jha</span>
         </p>
       </div>
     </div>
   </div>
 
-  {/* Floating accent */}
-  <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl -z-10"></div>
+  {/* Floating accent - subtle */}
+  <div className="absolute bottom-0 right-0 w-96 h-96 bg-gray-200 rounded-full blur-3xl -z-10"></div>
 </footer>
+
     </>
   );
 };
