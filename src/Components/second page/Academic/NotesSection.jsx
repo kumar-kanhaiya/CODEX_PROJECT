@@ -74,10 +74,10 @@ const NotesSection = () => {
         </div>
 
         {/* SEARCH BAR CONTAINER */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 md:w-full mx-auto mb-12 md:mb-16 transition-all duration-300 hover:shadow-2xl md:hover:shadow-3xl hover:scale-[1.01] md:hover:scale-[1.02]">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 h-30 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 md:w-full mx-auto mb-12 md:mb-16 transition-all duration-300 hover:shadow-2xl md:hover:shadow-3xl hover:scale-[1.01] md:hover:scale-[1.01]">
           {/* Semester Selector */}
-          <div className="w-full md:w-1/3">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+          <div className="w-full md:w-1/3 max-h-full">
+            <label className="block text-sm font-semibold text-slate-700 mb-4 md:mb-6">
               Semester
             </label>
             <select
@@ -99,8 +99,8 @@ const NotesSection = () => {
           </div>
 
           {/* Subject Selector */}
-          <div className="w-full md:w-1/3">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+          <div className="w-full md:w-1/3 max-h-full mb-4 md:mb-6">
+            <label className="block text-sm font-semibold text-slate-700 mb-4 md:mb-6">
               Subject
             </label>
             <select
@@ -119,14 +119,14 @@ const NotesSection = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="w-full md:w-1/4 flex justify-center">
+          <div className="w-full md:w-1/4 max-h-full flex justify-center items-center mt-2 md:mt-6">
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className={`text-white font-bold rounded-xl md:rounded-2xl px-6 md:px-8 py-3 md:py-4 w-full transition-all duration-300 transform ${
+              className={`text-white text-1.8xl font-bold rounded-xl md:rounded-2xl px-6 md:px-8  py-8 md:py-8 w-full transition-all duration-300 transform ${
                 loading
                   ? "bg-gradient-to-r from-blue-300 to-purple-300 cursor-not-allowed shadow-inner"
-                  : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl md:hover:shadow-2xl hover:scale-105 active:scale-95"
+                  : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl md:hover:shadow-2xl hover:scale-105 active:scale-82"
               }`}
             >
               {loading ? (
@@ -152,7 +152,7 @@ const NotesSection = () => {
                   </svg>
                   Loading...
                 </div>
-              ) : (
+              ) : ( 
                 "Submit"
               )}
             </button>

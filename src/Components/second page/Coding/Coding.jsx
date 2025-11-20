@@ -55,7 +55,7 @@ const Coding = () => {
       <div className="min-h-screen bg-gray-50 py-16">
         {/* Header */}
         <div className="text-center mb-16 px-4">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-purple-600 mb-4 tracking-tight animate-pulse">
             Coding Resources
           </h1>
           <p className="text-xl text-gray-600">
