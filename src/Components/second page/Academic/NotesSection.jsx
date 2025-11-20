@@ -74,7 +74,7 @@ const NotesSection = () => {
         </div>
 
         {/* SEARCH BAR CONTAINER */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 h-30 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 md:w-full mx-auto mb-12 md:mb-16 transition-all duration-300 hover:shadow-2xl md:hover:shadow-3xl hover:scale-[1.01] md:hover:scale-[1.01]">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 h-30 bg-white/80 backdrop-blur-lg py-6 md:py-10 px-6 md:px-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/20 md:w-full mx-auto mb-12 md:mb-16 transition-all duration-300 hover:shadow-2xl md:hover:shadow-3xl hover:scale-[1] md:hover:scale-[1]">
           {/* Semester Selector */}
           <div className="w-full md:w-1/3 max-h-full">
             <label className="block text-sm font-semibold text-slate-700 mb-4 md:mb-6">
