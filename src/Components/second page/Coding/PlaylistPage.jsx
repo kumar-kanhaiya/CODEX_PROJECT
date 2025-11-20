@@ -10,7 +10,6 @@ const PlaylistPage = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  // Fetch all videos from YouTube API
   const fetchAllVideos = async (playlistId) => {
     let all = [];
     let nextPageToken = "";
@@ -30,16 +29,17 @@ const PlaylistPage = () => {
       );
 
       all.push(...res.data.items);
-
       if (!res.data.nextPageToken) break;
       nextPageToken = res.data.nextPageToken;
     }
 
-    return all.map((item) => ({
-      videoId: item.snippet.resourceId.videoId,
-      title: item.snippet.title,
-      thumbnail: item.snippet.thumbnails.medium.url,
-    }));
+    return all
+      .filter((item) => item.snippet.resourceId?.videoId) // avoid private/deleted
+      .map((item) => ({
+        videoId: item.snippet.resourceId.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails?.medium?.url || "",
+      }));
   };
 
   useEffect(() => {
@@ -47,84 +47,93 @@ const PlaylistPage = () => {
       try {
         const allVideos = await fetchAllVideos(playlistId);
         setVideos(allVideos);
-        setSelectedVideo(allVideos[0]);
+        if (allVideos.length > 0) {
+          setSelectedVideo(allVideos[0]);
+        }
       } catch (err) {
-        console.error("Playlist Error:", err);
-      }
-    };
+      console.error("Playlist Error:", err);
+    }
+  };
 
-    load();
-  }, [playlistId]);
+  load();
+}, [playlistId]);
 
   return (
     <>
       <Navbar />
 
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        {/* Header */}
-        <div className="text-center py-6">
-          <h1 className="text-4xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            Playlist Viewer
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 italic">
-            Dive into your coding journey, one video at a time.
-          </p>
-        </div>
-
-        {/* Responsive Layout */}
-        <div className="flex flex-col md:flex-row flex-1">
-
-          {/* Sidebar */}
-          <div className="w-full md:w-1/3 lg:w-1/5 bg-white border-r border-gray-200 p-4 overflow-y-auto h-screen">
-
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Upcoming Videos
-            </h2>
-
-            <ul className="space-y-3 my-5">
-              {videos.map((video, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedVideo(video)}
-                  className={`flex items-center gap-3 cursor-pointer p-3 rounded-lg transition hover:bg-gray-100 ${
-                    selectedVideo?.videoId === video.videoId
-                      ? "bg-gray-100 border-l-4 border-indigo-500"
-                      : ""
-                  }`}
-                >
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-24 h-16 object-cover rounded-md"
-                  />
-                  <p className="text-sm text-gray-700 font-medium line-clamp-2">
-                    {video.title}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Video Area */}
-          <div className="flex-1 flex flex-col items-center p-4 overflow-y-auto">
-            {selectedVideo ? (
-              <div className="w-full max-w-5xl">
-                <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    className="w-full h-full"
-                    src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
-                    title={selectedVideo.title}
-                    allowFullScreen
-                  ></iframe>
+      <div className="min-h-screen bg-gray-50 pt-16 md:pt-0">
+        {/* Desktop: Side-by-side layout | Mobile: Video on top */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-6 py-6">
+            {/* Video Player - Full width on mobile, fixed size on desktop */}
+            <div className="w-full lg:w-3/4 xl:w-4/5 order-1 lg:order-1">
+              {selectedVideo ? (
+                <div className="space-y-4">
+                  <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-shadow-2xl">
+                    <iframe
+                      className="w-full h-full rounded-xl"
+                      src={`https://www.youtube.com/embed/${selectedVideo.videoId}?autoplay=1&rel=0`}
+                      title={selectedVideo.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+                    {selectedVideo.title}
+                  </h1>
                 </div>
+              ) : (
+                <div className="aspect-video bg-gray-200 rounded-xl flex items-center justify-center">
+                  <p className="text-gray-500">Loading video...</p>
+                </div>
+              )}
+            </div>
 
-                <h2 className="mt-4 text-2xl font-bold text-gray-600">
-                  {selectedVideo.title}
-                </h2>
+            {/* Playlist - Below on mobile, sidebar on desktop */}
+            <div className="w-full lg:w-1/4 xl:w-1/5 order-2 lg:order-2 lg:max-h-screen lg:overflow-y-auto lg:sticky lg:top-20">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4 sticky top-0 bg-gray-50 py-2 z-10">
+                Playlist ({videos.length} videos)
+              </h2>
+
+              <div className="space-y-3 max-h-[calc(100vh-200px)] lg:max-h-none overflow-y-auto">
+                {videos.map((video, index) => (
+                  <div
+                    key={video.videoId}
+                    onClick={() => {
+                      setSelectedVideo(video);
+                      window.scrollTo({ top: 0, behavior: "smooth" }); // smooth scroll to top on mobile
+                    }}
+                    className={`flex gap-3 p-3 rounded-lg cursor-pointer transition-all hover:bg-gray-100 ${
+                      selectedVideo?.videoId === video.videoId
+                        ? "bg-indigo-50 border-l-4 border-indigo-600"
+                        : ""
+                    }`}
+                  >
+                    <div className="flex-shrink-0">
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="w-32 h-20 object-cover rounded-md"
+                      />
+                      <span className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-md">
+                        <span className="text-white text-xs font-semibold">
+                          {index + 1}
+                        </span>
+                      </span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-gray-900 line-clamp-2 text-sm">
+                        {video.title}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Video {index + 1} of {videos.length}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ) : (
-              <p className="text-gray-500 text-lg">Loading video...</p>
-            )}
+            </div>
           </div>
         </div>
       </div>
