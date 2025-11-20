@@ -37,7 +37,8 @@ const Contact = () => {
   return (
     <>
     <Navbar />
-    <section className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
+    <section className="min-h-screen flex items-center justify-center px-4 py-16 grid-bg">
+
       {/* Soft centered card with smooth entrance animation */}
       <div
         className="w-full max-w-2xl bg-white rounded-3xl shadow-xl border border-gray-100

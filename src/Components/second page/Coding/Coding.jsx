@@ -109,7 +109,8 @@ const Coding = () => {
       </div>
 
 
-      <footer className="relative bg-white text-gray-700 overflow-hidden border-t border-gray-200 p-12 flex  justify-center items-center mt-12">
+      <footer className="relative grid-bg text-gray-700 overflow-hidden border-t border-gray-200 p-12 flex justify-center items-center mt-12">
+
   {/* Subtle background pattern - optional, kept minimal */}
   <div className="absolute inset-0 opacity-5">
     <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-transparent"></div>
