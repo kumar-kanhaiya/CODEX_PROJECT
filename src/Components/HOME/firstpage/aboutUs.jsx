@@ -88,7 +88,7 @@ const AboutUs = () => {
                 <div className="finaltouch">
                         <footer>© 2023 CODEX. All rights reserved.</footer>
                         <div className="name">
-                            <h3>Made with ❤️ by <a href="https://portfolio-sua7.vercel.app/" target='_blank'>Kanhaiya Kumar</a> , Shubham Jha</h3>
+                            <h3>Made with ❤️ by <a href="https://portfolio-sua7.vercel.app/" target='_blank'>Kanhaiya Kumar</a></h3>
                         </div>
                     </div>
         </>

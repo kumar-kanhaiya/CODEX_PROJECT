@@ -221,8 +221,8 @@ const Coding = () => {
           >
             Kanhaiya Kumar
           </a>
-          &
-          <span className="text-gray-900 font-bold mx-1">Shubham Jha</span>
+          {/* & */}
+          {/* <span className="text-gray-900 font-bold mx-1">Shubham Jha</span> */}
         </p>
       </div>
     </div>
